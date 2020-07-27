@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import spring.jpa.model.dao.AccountDao;
+import spring.jpa.model.dto.AccountDto;
 import spring.jpa.separate.controller.request.AccountRequest;
 import spring.jpa.separate.controller.response.BaseResponse;
 import spring.jpa.separate.controller.response.ErrCode;
-import spring.jpa.separate.dto.AccountDto;
-import spring.jpa.separate.model.dao.AccountDao;
 
 @RestController
 @RequestMapping("/account")

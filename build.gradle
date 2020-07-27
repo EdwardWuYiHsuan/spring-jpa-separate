@@ -19,22 +19,15 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
-	//flatDir name: 'libs', dirs: "$projectDir/libs"  //Q1
 }
 
 dependencies {
     
     // External library
-	compile fileTree(dir: 'libs', include: ['*.jar'])  //Q1. 但這樣寫就可以了
+	compile fileTree(dir: 'libs', include: ['*.jar'])
 	
 	// Spring boot with spring-mvc
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	
-	// Data CURD
-	//Q1. 主要是讀libs底下的library，但如果想寫在這，列出library，就要在上面的repository，去備註底下library要去哪個repository下載
-	//implementation 'com.oracle:ojdbc7:12.1.0'  
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'com.microsoft.sqlserver:mssql-jdbc:8.2.0.jre8'
 	
 	// Use JUnit test framework
     testImplementation 'junit:junit:4.12'
