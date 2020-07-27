@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'spring.jpa.separate'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	//flatDir name: 'libs', dirs: "$projectDir/libs"  //Q1
+}
+
+dependencies {
+    
+    // External library
+	compile fileTree(dir: 'libs', include: ['*.jar'])  //Q1. 但這樣寫就可以了
+	
+	// Spring boot with spring-mvc
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	// Data CURD
+	//Q1. 主要是讀libs底下的library，但如果想寫在這，列出library，就要在上面的repository，去備註底下library要去哪個repository下載
+	//implementation 'com.oracle:ojdbc7:12.1.0'  
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:8.2.0.jre8'
+	
+	// Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+    
+    // Utility
+	compileOnly 'org.projectlombok:lombok:1.18.4'
+	annotationProcessor 'org.projectlombok:lombok'
+
+}
