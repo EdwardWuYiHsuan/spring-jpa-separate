@@ -10,18 +10,22 @@ buildscript {
 	}
 }
 
+// == Plugin ==
 apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
 
+// == Properties ==
 group = 'spring.jpa.separate'
 sourceCompatibility = '1.8'
 
+// == Repository ==
 repositories {
 	mavenCentral()
 	//flatDir name: 'libs', dirs: "$projectDir/libs"  //Q1
 }
 
+// == Dependency ==
 dependencies {
     
     // External library
