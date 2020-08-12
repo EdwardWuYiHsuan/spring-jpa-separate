@@ -26,16 +26,16 @@ repositories {
 
 // == Dependency ==
 dependencies {
-    
-    // External library
-	compile fileTree(dir: 'libs', include: ['*.jar'])
-	
+
 	// Spring boot with spring-mvc
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	
+
+	// Data CURD
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // for jpa-data configuration, E.g. @EnableJpaRepositories
+
 	// Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    
+
     // Utility
 	compileOnly 'org.projectlombok:lombok:1.18.4'
 	annotationProcessor 'org.projectlombok:lombok'
